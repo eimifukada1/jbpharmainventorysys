@@ -1,7 +1,9 @@
-const router = require("express").Router()
+const express = require('express');
+const router = express.Router();
+const AuthController = require('../controllers/Auth.controller');
+const Validation = require('../middlewares/validation');
+const { authValidation } = require('../validations/Auth.validation');
 
-router.get("/",(req,res)=>{
-    res.json({msg:"hello world"})
-})
+router.post('/register', authValidation.registerUser, Validation, AuthController.RegisterUser);
 
 module.exports = router
