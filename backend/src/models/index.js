@@ -1,2 +1,7 @@
-exports.UserModel = ("./user.models")
-exports.ProfileModel = ("./profile.models")
+const UserModel = require("./user.models");
+const ProfileModel = require("./profile.models");
+
+module.exports = {
+  UserModel,
+  ProfileModel,
+};

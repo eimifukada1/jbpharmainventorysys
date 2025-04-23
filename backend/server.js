@@ -1,12 +1,12 @@
-require("dotenv").config({
-    
-})
-const { PUBLIC_DATA } = require("./constant");
+require("dotenv").config();
 const app = require("./src/app");
 const { ConnectDB } = require("./src/config/db.config");
-ConnectDB
+// const { PUBLIC_DATA } = require("./src/constants"); // You might not need this line anymore
 
+ConnectDB();
 
-app.listen(PUBLIC_DATA.port,()=>{
-    console.log('The app is listening at http://localhost:3000');
-})
+const port = process.env.PORT || 8000; // Use process.env.PORT with a fallback
+
+app.listen(port, () => {
+  console.log(`The app is listening at http://localhost:${port}`);
+});
